@@ -63,7 +63,10 @@ while game_on:
             highest_score_board.update_highest_score()
 
     # Detect collision with walls.
-    if snake.head.xcor() >= 280 or snake.head.xcor() <= -280 or snake.head.ycor() >= 280 or snake.head.ycor() <= -280:
+    Limit_to_collision_x = SCREEN_WIDTH / 2 - 20
+    Limit_to_collision_y = SCREEN_HEIGHT / 2 - 20
+    if (snake.head.xcor() >= Limit_to_collision_x) or (snake.head.xcor() <= Limit_to_collision_x * -1) \
+            or (snake.head.ycor() >= Limit_to_collision_y) or (snake.head.ycor() <= Limit_to_collision_y * -1):
         game_on = False
         score_board.game_over()
 
