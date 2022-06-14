@@ -1,6 +1,9 @@
 from turtle import Turtle
 ALIGNMENT = "center"
-FONT = ("Calibri", 16, "normal")
+FONT = ("calibri", 18, "normal")
+GAMEOVER_FONT = ("calibri", 30, "bold")
+SCORE_POSITION = (-120, 270)
+HIGHEST_SCORE_POSITION = (90, 270)
 
 
 class Scoreboard(Turtle):
@@ -25,18 +28,12 @@ class Scoreboard(Turtle):
 
     def game_over(self):
         self.goto(0, 0)
-        self.write(arg="GAME OVER", align=ALIGNMENT, font=FONT)
+        self.write(arg="GAME OVER", align=ALIGNMENT, font=GAMEOVER_FONT)
 
     def score_up(self):
         self.clear()
         self.score += 1
         self.update_score()
-
-    def score_position(self):
-        self.goto(-70, 270)
-
-    def highest_score_position(self):
-        self.goto(70, 270)
 
     def save_highest_score(self):
         file = open(file="highest-score.txt", mode="w")
